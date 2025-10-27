@@ -54,11 +54,6 @@ git push origin main
 - **Findings** → Filter by `container-scanning-1`
 - **Policies** → Your policy → View findings
 
-## Expected Vulnerabilities
-- `httpx==0.15.3` (known CVEs)
-- `requests==2.22.0` (older version with issues)
-- Python 3.9.11 base image vulnerabilities
-
 ## Policy Type
 **Code Risk policy with On Push trigger** - Scans Dockerfile content in real-time on every push to detect vulnerabilities line-by-line.
 
