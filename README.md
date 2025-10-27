@@ -42,10 +42,11 @@ git push origin main
 1. In Arnica: **Policies** → **Create New Policy**
 2. Configure:
    - **Name**: "Dockerfile Line Scanning - Python"
-   - **Type**: Container Security / Dockerfile Content Scan
-   - **Trigger**: On every commit
-   - **Scope**: Apply to `container-scanning-1` only
-   - **Rules**: Enable vulnerability detection
+   - **Type**: Code Risk
+   - **Trigger**: On Push (real-time scanning)
+   - **Scope**: Apply to `container-scanning-1` repository only
+   - **Conditions**: Add file path condition for `*.Dockerfile`
+   - **Actions**: Configure notifications/alerts as needed
 3. Save
 
 ### 5. View Results in Arnica
@@ -59,7 +60,7 @@ git push origin main
 - Python 3.9.11 base image vulnerabilities
 
 ## Policy Type
-**Line-based content scanning** - Scans Dockerfile content on every push to detect vulnerabilities.
+**Code Risk policy with On Push trigger** - Scans Dockerfile content in real-time on every push to detect vulnerabilities line-by-line.
 
 ---
 
