@@ -2,9 +2,10 @@ FROM python:3.9.11
 
 WORKDIR /usr/src/app
 
-COPY ofir/requirements.txt ./requirements.txt
+RUN pip install awscli
+RUN aws --version
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install requests==2.22.0 # on no we might have cves ;-)
 
 RUN echo "Arnica is awesome!!!"
 
