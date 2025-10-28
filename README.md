@@ -37,6 +37,7 @@ git push origin main
 2. Go to **Settings** → **Integrations** → **GitHub**
 3. Add this repository
 4. Wait 1-2 minutes for sync
+5. Add Integration for [Container scanning](https://docs.arnica.io/arnica-documentation/getting-started/container-integrations/ghcr)
 
 ### 4. Set Up Policy (Line-Based Scanning)
 1. In Arnica: **Policies** → **Create New Policy**
