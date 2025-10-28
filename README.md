@@ -14,12 +14,52 @@ requirements.txt
 ## Setup Steps
 
 ### 1. Copy Files
+
+⚠️ **IMPORTANT**: Some files may already exist in your destination repository. Review each file before copying to avoid overwriting:
+- `.gitignore` - May have existing rules
+- `.github/workflows/*.yml` - May have existing workflows
+- `requirements.txt` - May have existing dependencies
+
+**For NEW repositories (no conflicting files):**
 ```bash
-# From this repo to your destination:
-cp .gitignore /path/to/destination/repo/
-cp -r .github /path/to/destination/repo/
-cp awsome-lines.Dockerfile /path/to/destination/repo/
-cp requirements.txt /path/to/destination/repo/
+# Set your destination path
+DEST_REPO="/path/to/destination/repo"
+
+# Create directories if needed
+mkdir -p "$DEST_REPO/.github/workflows"
+
+# Copy files
+FILES_TO_COPY=(
+  ".gitignore"
+  "awsome-lines.Dockerfile"
+  "requirements.txt"
+)
+
+for file in "${FILES_TO_COPY[@]}"; do
+  cp "$file" "$DEST_REPO/"
+  echo "✓ Copied $file"
+done
+
+# Copy GitHub workflow files specifically (not entire directory)
+for workflow in .github/workflows/*.yml .github/workflows/*.yaml; do
+  [ -f "$workflow" ] && cp "$workflow" "$DEST_REPO/.github/workflows/" && echo "✓ Copied $workflow"
+done
+```
+
+**For repositories with EXISTING files:**
+```bash
+DEST_REPO="/path/to/destination/repo"
+
+# 1. Always safe - copy the Dockerfile
+cp awsome-lines.Dockerfile "$DEST_REPO/"
+
+# 2. Review before copying (check if files exist first):
+echo "Checking for conflicts..."
+[ -f "$DEST_REPO/.gitignore" ] && echo "⚠️  .gitignore exists - manual merge needed"
+[ -f "$DEST_REPO/requirements.txt" ] && echo "⚠️  requirements.txt exists - manual merge needed"
+[ -d "$DEST_REPO/.github/workflows" ] && echo "⚠️  workflows exist - manual merge needed"
+
+# 3. Manually review and merge conflicts before running the copy loop above
 ```
 
 ### 2. Push to Main
