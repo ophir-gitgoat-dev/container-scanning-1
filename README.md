@@ -49,9 +49,6 @@ git push origin main
    - **Conditions**: Add file path condition for `*.Dockerfile`
    - **Actions**: Configure notifications/alerts as needed
 3. Ensure the Label Dockerfiles policy is disabled
-
-![Policy Configuration](image.png)
-
 4. Save
 
 ### 5. View Results in Arnica
