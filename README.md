@@ -195,3 +195,5 @@ After testing heuristic linking, try **container-scanning-2** to see annotation-
 - [Container Images Documentation](https://docs.arnica.io/arnica-documentation/inventory/container-images)
 - [Adding OCI Tags to Docker Images](https://docs.arnica.io/arnica-documentation/developers/adding-oci-tags-to-docker-images)
 - [Container Integrations](https://docs.arnica.io/arnica-documentation/getting-started/container-integrations/ghcr)
+
+  
